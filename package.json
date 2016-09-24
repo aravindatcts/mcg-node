@@ -1,0 +1,22 @@
+{
+  "name": "mcg",
+  "version": "0.0.1",
+  "description": "mcg base application ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Aravind S",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.0.1",
+    "body-parser": "^1.15.2",
+    "connect-multiparty": "^2.0.0",
+    "cors": "^2.8.0",
+    "express": "^4.14.0",
+    "express-busboy": "^4.0.0",
+    "mysql": "^2.11.1",
+    "s3fs": "^2.4.8"
+  }
+}
