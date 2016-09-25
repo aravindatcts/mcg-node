@@ -16,7 +16,7 @@ var connection = require('../db');
             if(err) {
                 res.json({"Error" : true, "Message" : "Error executing MySQL query"});
             } else {
-                res.json({"Error" : false, "Message" : "Success", "Users" : rows});
+                res.json({"Error" : false, "Message" : "Success", "Race" : rows});
             }
         });
     });
@@ -35,7 +35,45 @@ var connection = require('../db');
             }
         });
     });
+
+
+     router.post("/",function(req,res){
+
+        var query = "INSERT into raceday(race_date) values (?)";
+      
+        var table = [req.body.Race[0].race_date];
+
+        query = mysql.format(query,table);
+        console.log(query);
+        connection.query(query,function(err,rows){
+            if(err) {
+                res.json({"Error" : true, "Message" : "Error executing MySQL query" + err});
+            } else {
+                res.json({"Error" : false, "Message" : "Success", "Race" : rows});
+            }
+        });
+    });
+
+
+     router.post("/delete/",function(req,res){
+
+        var query = "delete from raceday where race_date=?";
+      
+        var table = [req.body.Race[0].race_date];
+
+        query = mysql.format(query,table);
+        console.log(query);
+        connection.query(query,function(err,rows){
+            if(err) {
+                res.json({"Error" : true, "Message" : "Error executing MySQL query" + err});
+            } else {
+                res.json({"Error" : false, "Message" : "Success", "Race" : rows});
+            }
+        });
+    });
     
+
+
     
     
  module.exports = router; 

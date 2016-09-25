@@ -19,9 +19,9 @@ var s3fsImpl = new S3FS('profilepicofusers', {
 s3fsImpl.create();
 
 
-  var multiparty = require('connect-multiparty'),
-        multipartymiddleware = multiparty();
- router.use(multipartymiddleware);
+//   var multiparty = require('connect-multiparty'),
+//         multipartymiddleware = multiparty();
+//  router.use(multipartymiddleware);
 
 // custom library
 // model
