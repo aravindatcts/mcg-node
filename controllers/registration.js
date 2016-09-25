@@ -43,8 +43,8 @@ router.get("/:user_id", function (req, res) {
 
 router.get("/:tournament_id/:user_id", function (req, res) {
     var query = "select * from registration register inner join contacts on register.member_id = contacts.memberid where reg_member_id in  " +
-        " (select reg_member_id from registration where member_id =  ? and tournament_id = ? ) ";
-    var table = [req.params.user_id, req.params.tournament_id];
+        " (select reg_member_id from registration where member_id =  ? and tournament_id = ? )  and register.tournament_id = ?";
+    var table = [req.params.user_id, req.params.tournament_id,req.params.tournament_id];
 
     query = mysql.format(query, table);
 

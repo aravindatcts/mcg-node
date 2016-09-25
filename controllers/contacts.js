@@ -9,21 +9,22 @@ var connection = require('../db');
 
 
 
-// var S3FS = require('s3fs');
+var S3FS = require('s3fs');
 
-// var s3fsImpl = new S3FS('profilepicofusers', {
-//     accessKeyId: 'AKIAISSJVRXHRHT6X6LQ',
-//     secretAccessKey: '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'
-// });
+var s3fsImpl = new S3FS('profilepicofusers', {
+    accessKeyId: 'AKIAISSJVRXHRHT6X6LQ',
+    secretAccessKey: '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'
+});
 
-// s3fsImpl.create();
+s3fsImpl.create();
 
 
-//  var multiparty = require('connect-multiparty'),
-//       multipartymiddleware = multipart();
+  var multiparty = require('connect-multiparty'),
+        multipartymiddleware = multiparty();
+ router.use(multipartymiddleware);
 
-// // custom library
-// // model
+// custom library
+// model
 
 
 
@@ -57,6 +58,7 @@ router.get("/:user_id", function (req, res) {
 
 router.post("/profilepic/:user_id",function (req, res) {
  
+ console.log(req);
    var file = req.files.file; 
    var stream = fs.createReadStream(file.path); 
  
